@@ -12,6 +12,25 @@ public class PointOfInterest
     public double latitude;
     public double longitude;
 
+    [Tooltip("Sequence position in the hunt (0-based). Must match HuntManager.CurrentIndex to be active.")]
+    public int order;
+
+    [Tooltip("Score awarded when this POI is collected.")]
+    public int pointValue = 1;
+
+    [Header("Riddle / Hint")]
+    [TextArea(2, 6)]
+    public string riddleText;
+    public Sprite riddleImage;
+    [TextArea(2, 4)]
+    public string hintText;
+    public Sprite hintImage;
+    [Tooltip("Coins required to reveal this POI's hint.")]
+    public int hintCost;
+    [HideInInspector] public bool hintUsed;
+
+    [HideInInspector] public bool isCollected;
+
     [Tooltip("Distance at which the AR object appears.")]
     public float enterRadiusMeters = 10f;
 
